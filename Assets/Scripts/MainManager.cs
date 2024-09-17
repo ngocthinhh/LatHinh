@@ -1,0 +1,42 @@
+using System;
+using UnityEngine;
+
+public class MainManager : MonoBehaviour
+{
+    public PageManager PageManager;
+    public TimeManager TimeManager;
+    public UIManager UIManager;
+    public ObjectValueManager ObjectValueManager;
+    
+    private void Awake()
+    {
+        PageManager.Instance = this.PageManager;
+        TimeManager.Instance = this.TimeManager;
+        UIManager.Instance = this.UIManager;
+        ObjectValueManager.Instance = this.ObjectValueManager;
+
+        //
+
+        UIManager.SetUpBtn();
+        PageManager.SwitchPage(PageManager.PageState.Home);
+    }
+
+    private void Update()
+    {
+        if (TimeManager.IsTiming && TimeManager.TimeCurrent > 0)
+        {
+            TimeManager.TimeCurrent -= Time.deltaTime;
+            int minute = (int)TimeManager.TimeCurrent / 60;
+            int second = (int)TimeManager.TimeCurrent % 60;
+            string text = string.Format("{0:00}:{1:00}", minute, second);
+            UIManager.Instance.TimeText.text = text;
+
+
+            if (TimeManager.TimeCurrent <= 0)
+            {
+                TimeManager.TimeCurrent = 0;
+                PageManager.Instance.SwitchPage(PageManager.PageState.Lose);
+            }
+        }
+    }
+}
