@@ -29,6 +29,7 @@ public class MainManager : MonoBehaviour
             TimeManager.TimeCurrent -= Time.deltaTime;
             int minute = (int)TimeManager.TimeCurrent / 60;
             int second = (int)TimeManager.TimeCurrent % 60;
+            //float milisecond = TimeManager.TimeCurrent * 100 % 100;
             string text = string.Format("{0:00}:{1:00}", minute, second);
             UIManager.Instance.TimeText.text = text;
 

@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     
     [Header("Home")]
     [SerializeField] private Button startBtn;
+    [SerializeField] private Button quitBtn;
 
     [Header("InGame")]
     [SerializeField] private Button inGameToHomeBtn;
@@ -27,6 +28,7 @@ public class UIManager : MonoBehaviour
     
     [Header("Pause")]
     [SerializeField] private Button continueBtn;
+    [SerializeField] private Button pauseToHomeBtn;
     
     public void SetUpBtn()
     {
@@ -39,6 +41,11 @@ public class UIManager : MonoBehaviour
             TimeManager.Instance.StartTime();
             ObjectValueManager.Instance.SetBlock(false);
             PageManager.Instance.SwitchPage(PageManager.PageState.InGame);
+            pauseBtn.onClick.Invoke();
+        });
+        quitBtn.onClick.AddListener(() =>
+        {
+            Application.Quit();
         });
 
         // Win
@@ -65,6 +72,12 @@ public class UIManager : MonoBehaviour
             TimeManager.Instance.ContinueTime();
             ObjectValueManager.Instance.SetBlock(false);
             PageManager.Instance.SwitchPage(PageManager.PageState.InGame);
+        });
+        pauseToHomeBtn.onClick.AddListener(() =>
+        {
+            MusicManager.Instance.PlaySound(MusicManager.Instance.ClickSource, MusicManager.Instance.ClickSound);
+            MusicManager.Instance.StopSound(MusicManager.Instance.BackgroundSource);
+            PageManager.Instance.SwitchPage(PageManager.PageState.Home);
         });
 
         // InGame
