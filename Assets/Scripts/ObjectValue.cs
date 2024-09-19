@@ -22,6 +22,7 @@ public class ObjectValue : MonoBehaviour
         ChoseBtn.onClick.AddListener(() =>
         {
             Open();
+            MusicManager.Instance.PlaySound(MusicManager.Instance.ClickSource, MusicManager.Instance.ClickSound);
         });
     }
 

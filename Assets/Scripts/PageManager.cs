@@ -22,6 +22,7 @@ public class PageManager : MonoBehaviour
     
     [Header("Win")]
     [SerializeField] private GameObject winPage;
+    [SerializeField] private GameObject ConfettiCongratulation;
     
     [Header("Lose")]
     [SerializeField] private GameObject losePage;
@@ -35,6 +36,7 @@ public class PageManager : MonoBehaviour
         switch (Page)
         {
             case PageState.Home:
+                ConfettiCongratulation.SetActive(false);
                 CloseAllPage();
                 TimeManager.Instance.ResetTime();
                 ObjectValueManager.Instance.Clear();
@@ -46,14 +48,19 @@ public class PageManager : MonoBehaviour
                 inGamePage.gameObject.SetActive(true);
                 break;
             case PageState.Win:
+                ConfettiCongratulation.SetActive(true);
                 CloseAllPage();
                 TimeManager.Instance.StopTime();
                 UIManager.Instance.ShowTimeWin();
+                MusicManager.Instance.StopSound(MusicManager.Instance.BackgroundSource);
+                MusicManager.Instance.PlaySound(MusicManager.Instance.ResultNoticationSource, MusicManager.Instance.WinSound);
                 winPage.gameObject.SetActive(true);
                 break;
             case PageState.Lose:
                 CloseAllPage();
                 TimeManager.Instance.StopTime();
+                MusicManager.Instance.StopSound(MusicManager.Instance.BackgroundSource);
+                MusicManager.Instance.PlaySound(MusicManager.Instance.ResultNoticationSource, MusicManager.Instance.LoseSound);
                 losePage.gameObject.SetActive(true);
                 break;
             case PageState.Pause:

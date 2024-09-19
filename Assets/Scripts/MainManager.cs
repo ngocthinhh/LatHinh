@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class MainManager : MonoBehaviour
@@ -7,6 +6,7 @@ public class MainManager : MonoBehaviour
     public TimeManager TimeManager;
     public UIManager UIManager;
     public ObjectValueManager ObjectValueManager;
+    public MusicManager MusicManager;
     
     private void Awake()
     {
@@ -14,6 +14,7 @@ public class MainManager : MonoBehaviour
         TimeManager.Instance = this.TimeManager;
         UIManager.Instance = this.UIManager;
         ObjectValueManager.Instance = this.ObjectValueManager;
+        MusicManager.Instance = this.MusicManager;
 
         //
 

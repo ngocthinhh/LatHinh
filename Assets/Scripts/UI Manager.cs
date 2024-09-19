@@ -33,6 +33,8 @@ public class UIManager : MonoBehaviour
         // Start
         startBtn.onClick.AddListener(() =>
         {
+            MusicManager.Instance.PlaySound(MusicManager.Instance.ClickSource, MusicManager.Instance.ClickSound);
+            MusicManager.Instance.PlaySound(MusicManager.Instance.BackgroundSource, MusicManager.Instance.BackgroundSound);
             ObjectValueManager.Instance.SetUp();
             TimeManager.Instance.StartTime();
             ObjectValueManager.Instance.SetBlock(false);
@@ -42,18 +44,24 @@ public class UIManager : MonoBehaviour
         // Win
         winToHomeBtn.onClick.AddListener(() =>
         {
+            MusicManager.Instance.PlaySound(MusicManager.Instance.ClickSource, MusicManager.Instance.ClickSound);
+            MusicManager.Instance.StopSound(MusicManager.Instance.ResultNoticationSource);
             PageManager.Instance.SwitchPage(PageManager.PageState.Home);
         });
 
         // Lose
         loseToHomeBtn.onClick.AddListener(() =>
         {
+            MusicManager.Instance.PlaySound(MusicManager.Instance.ClickSource, MusicManager.Instance.ClickSound);
+            MusicManager.Instance.StopSound(MusicManager.Instance.ResultNoticationSource);
             PageManager.Instance.SwitchPage(PageManager.PageState.Home);
         });
 
         // Pause
         continueBtn.onClick.AddListener(() =>
         {
+            MusicManager.Instance.PlaySound(MusicManager.Instance.ClickSource, MusicManager.Instance.ClickSound);
+            MusicManager.Instance.ContinueSound(MusicManager.Instance.BackgroundSource);
             TimeManager.Instance.ContinueTime();
             ObjectValueManager.Instance.SetBlock(false);
             PageManager.Instance.SwitchPage(PageManager.PageState.InGame);
@@ -62,10 +70,14 @@ public class UIManager : MonoBehaviour
         // InGame
         inGameToHomeBtn.onClick.AddListener(() =>
         {
+            MusicManager.Instance.PlaySound(MusicManager.Instance.ClickSource, MusicManager.Instance.ClickSound);
+            MusicManager.Instance.StopSound(MusicManager.Instance.BackgroundSource);
             PageManager.Instance.SwitchPage(PageManager.PageState.Home);
         });
         pauseBtn.onClick.AddListener(() =>
         {
+            MusicManager.Instance.PlaySound(MusicManager.Instance.ClickSource, MusicManager.Instance.ClickSound);
+            MusicManager.Instance.PauseSound(MusicManager.Instance.BackgroundSource);
             TimeManager.Instance.PauseTime();
             ObjectValueManager.Instance.SetBlock(true);
             PageManager.Instance.SwitchPage(PageManager.PageState.Pause);

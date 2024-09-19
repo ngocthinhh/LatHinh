@@ -102,11 +102,15 @@ public class ObjectValueManager : MonoBehaviour
 
                 ObjectValueList.Remove(valueOne);
                 ObjectValueList.Remove(valueTwo);
+
+                MusicManager.Instance.PlaySound(MusicManager.Instance.InGameNoticationSource, MusicManager.Instance.SuccesSound);
             }
             else
             {
                 valueOne.Close();
                 valueTwo.Close();
+
+                MusicManager.Instance.PlaySound(MusicManager.Instance.InGameNoticationSource, MusicManager.Instance.FallSound);
             }
 
             valueOne = null;
