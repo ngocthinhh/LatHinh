@@ -9,9 +9,8 @@ public class ObjectValueManager : MonoBehaviour
     [SerializeField] private GameObject block;
     [SerializeField] private Sprite BackImage;
     [SerializeField] private Sprite DoneImage;
-    [SerializeField] private List<Sprite> FrontImageList01 = new List<Sprite>();
-    [SerializeField] private List<Sprite> FrontImageList02 = new List<Sprite>();
-    [SerializeField] private int turnNum = 1;
+    [SerializeField] private List<Sprite> FrontImageAssetList = new List<Sprite>();
+    [SerializeField] private List<Sprite> FrontImageList = new List<Sprite>();
     [SerializeField] private List<ObjectValue> ObjectValueList = new List<ObjectValue>();
 
     [SerializeField] private ObjectValue valueOne;
@@ -51,54 +50,36 @@ public class ObjectValueManager : MonoBehaviour
         ObjectValue[] objectValues = containObject.GetComponentsInChildren<ObjectValue>();
         ObjectValueList.AddRange(objectValues);
 
+        // Get Random From Asset
+        List<Sprite> assetList = new List<Sprite>(FrontImageAssetList);
+        FrontImageList.Clear();
+        for (int i = 0; i < 10; i++)
+        {
+            Sprite sprite = assetList[Random.Range(0, assetList.Count)];
+            assetList.Remove(sprite);
+            FrontImageList.Add(sprite);
+        }
+
         //
         List<Sprite> spriteList = new List<Sprite>();
         int indexFrontImageList = 0;
         bool isDuplicate = false;
-        switch (turnNum)
+        foreach (ObjectValue value in ObjectValueList)
         {
-            case 1:
-                foreach (ObjectValue value in ObjectValueList)
-                {
-                    spriteList.Add(FrontImageList01[indexFrontImageList]);
+            spriteList.Add(FrontImageList[indexFrontImageList]);
 
-                    if (!isDuplicate)
-                    {
-                        isDuplicate = !isDuplicate;
-                        continue;
-                    }
+            if (!isDuplicate)
+            {
+                isDuplicate = !isDuplicate;
+                continue;
+            }
 
-                    isDuplicate = !isDuplicate;
-                    indexFrontImageList++;
-                    if (indexFrontImageList == FrontImageList01.Count)
-                    {
-                        indexFrontImageList = 0;
-                    }
-                }
-
-                turnNum = 2;
-                break;
-            case 2:
-                foreach (ObjectValue value in ObjectValueList)
-                {
-                    spriteList.Add(FrontImageList02[indexFrontImageList]);
-
-                    if (!isDuplicate)
-                    {
-                        isDuplicate = !isDuplicate;
-                        continue;
-                    }
-
-                    isDuplicate = !isDuplicate;
-                    indexFrontImageList++;
-                    if (indexFrontImageList == FrontImageList02.Count)
-                    {
-                        indexFrontImageList = 0;
-                    }
-                }
-
-                turnNum = 1;
-                break;
+            isDuplicate = !isDuplicate;
+            indexFrontImageList++;
+            if (indexFrontImageList == FrontImageList.Count)
+            {
+                indexFrontImageList = 0;
+            }
         }
 
 

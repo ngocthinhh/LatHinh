@@ -2828,29 +2828,28 @@ MonoBehaviour:
   block: {fileID: 5519791}
   BackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   DoneImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  FrontImageList01:
-  - {fileID: 21300000, guid: a6062dcaed8c09a43a72023b80f18b5e, type: 3}
-  - {fileID: 21300000, guid: 0e8b4013430f55f4996a084cafe84a76, type: 3}
-  - {fileID: 21300000, guid: 4bedc226e7083a041a7f5e5a3933fdee, type: 3}
-  - {fileID: 21300000, guid: f62a3a2d6a31d944a93b90ead6bc2b2c, type: 3}
-  - {fileID: 21300000, guid: dd473bcaf39150e41b128b13d5e4c4ee, type: 3}
-  - {fileID: 21300000, guid: 32bd1c6b7840f5f498b4e34fd66ecc6a, type: 3}
-  - {fileID: 21300000, guid: 049dc73af23a55147b24e8fb4c04754f, type: 3}
-  - {fileID: 21300000, guid: a7638dafc77696b47b018093372f88b3, type: 3}
-  - {fileID: 21300000, guid: 45fd4e0f81834144ca654cdcdfee3a81, type: 3}
-  - {fileID: 21300000, guid: c614ebe9af5433f498eeeb7296638819, type: 3}
-  FrontImageList02:
-  - {fileID: 21300000, guid: cf7105f6bfd751240bb9a515ef048693, type: 3}
-  - {fileID: 21300000, guid: 0332cd4c9b70428449dc0e55a75d880a, type: 3}
-  - {fileID: 21300000, guid: b490f1eccc691974d9d4a225fd6fe9ba, type: 3}
-  - {fileID: 21300000, guid: a43aa1c2ac7ef5d41a72b6e2635b249a, type: 3}
-  - {fileID: 21300000, guid: 6baec29a2d01a5b4e83e41f849c2ad64, type: 3}
-  - {fileID: 21300000, guid: aac22cf771b848f4b9edf4c96fc098fe, type: 3}
-  - {fileID: 21300000, guid: f49e1698161feef44bcc121bc350967d, type: 3}
-  - {fileID: 21300000, guid: dd473bcaf39150e41b128b13d5e4c4ee, type: 3}
-  - {fileID: 21300000, guid: a7638dafc77696b47b018093372f88b3, type: 3}
-  - {fileID: 21300000, guid: c614ebe9af5433f498eeeb7296638819, type: 3}
-  turnNum: 1
+  FrontImageAssetList:
+  - {fileID: 21300000, guid: 69068b831703b4e4f91af910fd502346, type: 3}
+  - {fileID: 21300000, guid: 698bac6a37e9c2a438eb9c6e8a74fa7c, type: 3}
+  - {fileID: 21300000, guid: 38cf2921542ec874887a174c3ece8868, type: 3}
+  - {fileID: 21300000, guid: a8c0b1aa0e7eac046a48690787a62526, type: 3}
+  - {fileID: 21300000, guid: 4828ce85b2832c14da9edfafb85ecbfb, type: 3}
+  - {fileID: 21300000, guid: 9aabd163c98a5ad4dbc60c22505d9e54, type: 3}
+  - {fileID: 21300000, guid: cf5d7dfdf90003e4fa533d019ead206c, type: 3}
+  - {fileID: 21300000, guid: 38991ee5e58ba6a4fa8691482e7b3b82, type: 3}
+  - {fileID: 21300000, guid: 4ef7c161072f15c4db19931c6533345c, type: 3}
+  - {fileID: 21300000, guid: 791e98ec0eca3ba419464e84b390d836, type: 3}
+  - {fileID: 21300000, guid: e92ac95d378975c4ca5f877dea10ce8a, type: 3}
+  - {fileID: 21300000, guid: c65a0477cac863740adb28a82eb2978a, type: 3}
+  - {fileID: 21300000, guid: 4f5c6374634c3244982a2798e99131f7, type: 3}
+  - {fileID: 21300000, guid: db330b41730fd5c409b996de939721db, type: 3}
+  - {fileID: 21300000, guid: 8180627ea582e344ba8a2ec665629011, type: 3}
+  - {fileID: 21300000, guid: d8dc14a884b0ae842868754ecf1a05f4, type: 3}
+  - {fileID: 21300000, guid: 9d6fc514709a2e44cb46559cf02530e6, type: 3}
+  - {fileID: 21300000, guid: 33f4e98ae7f2660479d53164837de046, type: 3}
+  - {fileID: 21300000, guid: 554af8a0c2cd5014895910e51b826bec, type: 3}
+  - {fileID: 21300000, guid: 857641cf1e741fe48aef07c5bc7ee620, type: 3}
+  FrontImageList: []
   ObjectValueList: []
   valueOne: {fileID: 0}
   valueTwo: {fileID: 0}
@@ -4439,7 +4438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221ed020814e4044cacdbe137fc9195c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 21
+  maxTime: 26
   timeCurrent: 0
   isTiming: 0
 --- !u!4 &1838974600
